@@ -17,8 +17,10 @@ ps1 = list(ps)
 ##ps5 function 
 def sony(greeting,selection,ps5):
     print(greeting)
-    for price in selection:
-        print(price)
+    counter = 1
+    for price in selection[1:]:
+        print(f'Seller {counter} for $', price)
+        counter += 1
     price_point = ps5
     if price_point == ps1[1]:
         print('PS5 for $%2.f'%ps1[1])
