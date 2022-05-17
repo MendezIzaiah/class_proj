@@ -1,5 +1,5 @@
+import pandas as pd
 
-import pandas as pd 
 
 df = pd.read_csv('product_list.csv')
 
@@ -8,9 +8,40 @@ ps = (df.iloc[3])  ##call on this when displaying the ps5s for sale
 
 ps1 = list(ps)
 #print(ps1)
-
+gp = (df.iloc[0:3])
 
 ##greeting function 
+
+def greeting(greet, sentinel, categoryq, readyq):
+    name = input("Hey there, what's your name?")
+    greet = "Welcome to our store, "+name+"!"
+    n = 0
+    canswer = ' '
+    ranswer = sentinel
+    print(greet)
+    while ranswer == sentinel:
+        canswer = input(categoryq)
+        ranswer = input(readyq)
+    
+    
+    if canswer == "GPU" or canswer == "gpu":
+        #gpu_options('Welcome to the GPU store','something','GPU 3060')
+        gpu_options("Welcome to our GPU department! Our selections range from the following:", gp, 'Which GPU would you like to buy?')
+        n = 3
+    
+    elif canswer == "PS5" or canswer == "ps5":
+        n = 3
+        sony("Welcome to our PlayStation console department! Our selections range from the following:", ps1, "Which is the most optimal price point? ")
+        # ps5 = input("Which PS5 would you like to purchase? ")
+        
+    
+    while ((canswer != "GPU") & (canswer != "PS5") & (n < 1)):
+        canswer = input("Invalid input!!! GPU or PS5??")
+        n = int(n)
+        n = n + 1
+        if n == 1:
+            print("Okay, have a nice day "+name+"!")      
+##greeting("Welcome to our store", "n", "What category would you like to browse (GPUs, PS5s)? ", "Ready to browse (y/n)? ")
 
 ##gpu function 
 contloop = 'Continue'
@@ -24,20 +55,19 @@ psj3 = (df.iloc[2])
 ##data gram print variables 
 
 
-
     
 def gpu_options(greeting,seller_choice,gpu):
     xyz = 'poop'
     while xyz != contloop:
         print(greeting)
         print(psjall)
-        gpupick = gpu
+        gpupick = input(gpu)
         if gpupick == "None":
             print("Goodbye")
-        elif gpupick == "GPU 3060":
+        elif gpupick == "GPU 3060" or "gpu 3060" or "3060":
             print('Pick a seller!\n')
-            print(psj1)
-            seller_choice = input()
+            print(psj1.to_string(),'\n')
+            seller_choice = input(gpu)
             if seller_choice == 'Seller 1':
                 print("GPU 3060's",'$%2.f'%500,"Enjoy your GPU 3060!" )
                 xyz = 'Continue'
@@ -49,11 +79,11 @@ def gpu_options(greeting,seller_choice,gpu):
                 xyz = 'Continue'
             else:   
                 print('Please select a valid Seller!')
-                seller_choice = input()
+                seller_choice = input(gpu)
                 
-        elif gpupick == "GPU 3080":
+        elif gpupick == "GPU 3080" or "gpu 3080" or "3080":
             print('Pick a seller!\n')
-            print(psj2)
+            print(psj2.to_string(),'\n')
             seller_choice2 = input()
             if seller_choice2 == 'Seller 1':
                 print("GPU 3080's",'$%2.f'%1200,"Enjoy your GPU 3080!" )
@@ -69,9 +99,9 @@ def gpu_options(greeting,seller_choice,gpu):
                 seller_choice2 = input()
                 
                 
-        elif gpupick == "GPU 3090":
-            print('Pick a seller!\n')
-            print(psj3)
+        elif gpupick == "GPU 3090" or "gpu 3090" or "3090": 
+            print('Pick a seller!\n') 
+            print(psj3.to_string(),'\n')
             seller_choice3 = input()
             if seller_choice3 == 'Seller 1':
                 print("GPU 3090's",'$%2.f'%2000,"Enjoy your GPU 3090!" )
@@ -101,24 +131,23 @@ def sony(greeting,selection,ps5):
     for price in selection[1:]:
         print(f'Seller {counter} for $', price)
         counter += 1
-    price_point = ps5 #might have to make an input statement 
+    price_point = int(input(ps5)) #might have to make an input statement 
     if price_point == ps1[1]:
-        print('PS5 for $%2.f'%ps1[1])
+        closing('PS5','$%2.f '%ps1[1],'enjoy')
     elif price_point == ps1[2]:
-        print('PS5 for $%2.f'%ps1[2])
+        closing('PS5','$%2.f '%ps1[2],'enjoy')
     elif price_point == ps1[3]:
-        print('PS5 for $%2.f'%ps1[3])
+        closing('PS5','$%2.f '%ps1[3],'enjoy')
     else:
         print('We do not have that price. Sorry')
 
-#sony('hi',ps1,750)
 
 #closing function
 def closing(pickeditems,price,goodbye):
-    print("Your total of",pickeditems,"is $"+str(price))
+    print("Your total of",pickeditems,"is "+str(price))
     more = input("Would you like to choose a different item (y/n)?")
     if more == "y":
-        greet_user("Great!", "No", "What category would you like to browse (GPUs, PS5s)? ", "Ready to browse (y/n)? ")
+        greeting("Great!", "No", "What category would you like to browse (GPUs, PS5s)? ", "Ready to browse (y/n)? ")
     elif more == 'n':
         for l in goodbye:
             print(l)
@@ -128,5 +157,10 @@ def closing(pickeditems,price,goodbye):
         
 
 ##closing('PS5','750','goodbye')
+
+
+greeting("Welcome to our store", "n", "What category would you like to browse (GPUs, PS5s)? ", "Ready to browse (y/n)? ")
+
+
 
 
