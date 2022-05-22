@@ -64,53 +64,53 @@ def gpu_options(greeting,seller_choice,gpu):
         gpupick = input(gpu)
         if gpupick == "None":
             print("Goodbye")
-        elif gpupick == "GPU 3060" or "gpu 3060" or "3060":
+        elif gpupick == "GPU 3060" or gpupick == "gpu 3060" or gpupick == "3060":
             print('Pick a seller!\n')
             print(psj1.to_string(),'\n')
             seller_choice = input(gpu)
             if seller_choice == 'Seller 1':
-                print("GPU 3060's",'$%2.f'%500,"Enjoy your GPU 3060!" )
+                closing("GPU 3060's",'$%2.f'%500,"Enjoy" )
                 xyz = 'Continue'
             elif seller_choice == 'Seller 2':
-                print("GPU 3060's",'$%2.f'%650,"Enjoy your GPU 3060!" )
+                closing("GPU 3060's",'$%2.f'%650,"Enjoy" )
                 xyz = 'Continue'
             elif seller_choice == 'Seller 3':
-                print("GPU 3060's",'$%2.f'%600,"Enjoy your GPU 3060!" )
+                closing("GPU 3060's",'$%2.f'%600,"Enjoy" )
                 xyz = 'Continue'
             else:   
                 print('Please select a valid Seller!')
                 seller_choice = input(gpu)
                 
-        elif gpupick == "GPU 3080" or "gpu 3080" or "3080":
+        elif gpupick == "GPU 3080" or gpupick == "gpu 3080" or gpupick == "3080":
             print('Pick a seller!\n')
             print(psj2.to_string(),'\n')
             seller_choice2 = input()
             if seller_choice2 == 'Seller 1':
-                print("GPU 3080's",'$%2.f'%1200,"Enjoy your GPU 3080!" )
+                closing("GPU 3080's",'$%2.f'%1200,"Enjoy" )
                 xyz = 'Continue'
             elif seller_choice2 == 'Seller 2':
-                print("GPU 3080's",'$%2.f'%1100,"Enjoy your GPU 3080!" )
+                closing("GPU 3080's",'$%2.f'%1100,"Enjoy" )
                 xyz = 'Continue'
             elif seller_choice2 == 'Seller 3':
-                print("GPU 3080's",'$%2.f'%1350,"Enjoy your GPU 3080!" )
+                closing("GPU 3080's",'$%2.f'%1350,"Enjoy" )
                 xyz = 'Continue'
             else:   
                 print('Please select a valid Seller!')
                 seller_choice2 = input()
                 
                 
-        elif gpupick == "GPU 3090" or "gpu 3090" or "3090": 
+        elif gpupick == "GPU 3090" or gpupick == "gpu 3090" or gpupick == "3090": 
             print('Pick a seller!\n') 
             print(psj3.to_string(),'\n')
             seller_choice3 = input()
             if seller_choice3 == 'Seller 1':
-                print("GPU 3090's",'$%2.f'%2000,"Enjoy your GPU 3090!" )
+                closing("GPU 3090's",'$%2.f'%2000,"Enjoy" )
                 xyz = 'Continue'
             elif seller_choice3 == 'Seller 2':
-                print("GPU 3090's",'$%2.f'%2100,"Enjoy your GPU 3090!" )
+                closing("GPU 3090's",'$%2.f'%2100,"Enjoy" )
                 xyz = 'Continue'
             elif seller_choice3 == 'Seller 3':
-                print("GPU 3090's",'$%2.f'%2150,"Enjoy your GPU 3090!" )
+                closing("GPU 3090's",'$%2.f'%2150,"Enjoy" )
                 xyz = 'Continue'
             else:   
                 print('Please select a valid Seller!')
@@ -119,9 +119,6 @@ def gpu_options(greeting,seller_choice,gpu):
         else:
             print('Please select a valid GPU!')
             gpupick = input()
-
-
-#gpu_options('Welcome to the GPU store','something','GPU 3060')
 
 
 ##ps5 function 
