@@ -24,12 +24,12 @@ def greeting(greet, sentinel, categoryq, readyq):
         ranswer = input(readyq)
     
     
-    if canswer == "GPU" or canswer == "gpu":
+    if canswer.lower() == 'gpu' or canswer.lower()== 'gpus':
         #gpu_options('Welcome to the GPU store','something','GPU 3060')
         gpu_options("Welcome to our GPU department! Our selections range from the following:", gp, 'Which GPU would you like to buy?')
         n = 3
     
-    elif canswer == "PS5" or canswer == "ps5":
+    elif canswer.lower() == "ps5" or canswer.lower() == "ps5s":
         n = 3
         sony("Welcome to our PlayStation console department! Our selections range from the following:", ps1, "Which is the most optimal price point? ")
         # ps5 = input("Which PS5 would you like to purchase? ")
