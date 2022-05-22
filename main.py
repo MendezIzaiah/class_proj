@@ -41,7 +41,7 @@ def greeting(greet, sentinel, categoryq, readyq):
         n = n + 1
         if n == 1:
             print("Okay, have a nice day "+name+"!")      
-##greeting("Welcome to our store", "n", "What category would you like to browse (GPUs, PS5s)? ", "Ready to browse (y/n)? ")
+
 
 ##gpu function 
 contloop = 'Continue'
@@ -128,7 +128,7 @@ def sony(greeting,selection,ps5):
     for price in selection[1:]:
         print(f'Seller {counter} for $', price)
         counter += 1
-    price_point = int(input(ps5)) #might have to make an input statement 
+    price_point = int(input(ps5)) 
     if price_point == ps1[1]:
         closing('PS5','$%2.f '%ps1[1],'enjoy')
     elif price_point == ps1[2]:
@@ -151,11 +151,7 @@ def closing(pickeditems,price,goodbye):
     else:
         more = input('Not a valid response. Continue?(y/n)? ')
 
-        
-
-##closing('PS5','750','goodbye')
-
-
+    
 greeting("Welcome to our store", "n", "What category would you like to browse (GPUs, PS5s)? ", "Ready to browse (y/n)? ")
 
 
