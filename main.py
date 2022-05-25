@@ -14,8 +14,9 @@ def press(button):
         print('Pick a valid option')
 
 #creating GUI variable, appearance 
-app = gui("Storefront", "400x200")
+app = gui("Storefront", "500x500")
 app.setBg("blue") #background
+app.addImage("decor","vid.gif")
 app.setFont(18)
 
 # add & configure widgets - 
@@ -175,12 +176,12 @@ def sony(greeting,selection,ps5):
     for price in selection[1:]:
         print(f'Seller {counter} for $', price)
         counter += 1
-    price_point = int(input(ps5)) 
-    if price_point == ps1[1]:
+    ps5_input = str(input(ps5))
+    if ps5_input == '750' or ps5_input.lower() == 'seller 1' or ps5_input == '1':
         closing('PS5','$%2.f '%ps1[1],'enjoy')
-    elif price_point == ps1[2]:
+    elif ps5_input == '800' or ps5_input.lower() == 'seller 2' or ps5_input == '2':
         closing('PS5','$%2.f '%ps1[2],'enjoy')
-    elif price_point == ps1[3]:
+    elif ps5_input == '850' or ps5_input.lower() == 'seller 3' or ps5_input == '3':
         closing('PS5','$%2.f '%ps1[3],'enjoy')
     else:
         print('We do not have that price. Sorry')
@@ -190,13 +191,17 @@ def sony(greeting,selection,ps5):
 def closing(pickeditems,price,goodbye):
     print("Your total of",pickeditems,"is "+str(price))
     more = input("Would you like to choose a different item (y/n)?")
-    if more == "y":
-        greeting("Great!", "No", "What category would you like to browse (GPUs, PS5s)? ", "Ready to browse (y/n)? ")
-    elif more == 'n':
-        for l in goodbye:
-            print(l)
-    else:
-        more = input('Not a valid response. Continue?(y/n)? ')
+
+    contloop2 = 'xyz'
+    while contloop2 != 'holder':
+        if more == "y":
+            greeting("Great!", "No", "What category would you like to browse (GPUs, PS5s)? ", "Ready to browse (y/n)? ")
+        elif more == 'n':
+            for l in goodbye:
+                print(l)
+            break
+        else:
+            more = input('Not a valid response. Continue?(y/n)? ')
 
     
 greeting("Welcome to our store", "n", "What category would you like to browse (GPUs, PS5s)? ", "Ready to browse (y/n)? ")
