@@ -1,6 +1,11 @@
 import pandas as pd
-
+import sys 
 from appJar import gui
+
+class DevNull:
+    def write(self, msg):
+        pass
+
 
 #event function
 def press(button):
@@ -199,10 +204,13 @@ def closing(pickeditems,price,goodbye):
         elif more == 'n':
             for l in goodbye:
                 print(l)
-            break
+            #break
+            sys.stderr = DevNull()
+            exit()
         else:
             more = input('Not a valid response. Continue?(y/n)? ')
-
+    
+    
     
 greeting("Welcome to our store", "n", "What category would you like to browse (GPUs, PS5s)? ", "Ready to browse (y/n)? ")
 
