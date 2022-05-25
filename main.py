@@ -1,6 +1,12 @@
 import pandas as pd
 import sys 
 from appJar import gui
+import time 
+import math
+from datetime import date
+from datetime import datetime
+
+start = time.time()
 
 class DevNull:
     def write(self, msg):
@@ -205,12 +211,15 @@ def closing(pickeditems,price,goodbye):
             for l in goodbye:
                 print(l)
             #break
+            end = time.time()
+            global start
+            print('time elapsed is:', end-start)
             sys.stderr = DevNull()
             exit()
         else:
             more = input('Not a valid response. Continue?(y/n)? ')
     
-    
+   
     
 greeting("Welcome to our store", "n", "What category would you like to browse (GPUs, PS5s)? ", "Ready to browse (y/n)? ")
 
