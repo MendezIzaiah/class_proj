@@ -1,5 +1,32 @@
 import pandas as pd
 
+from appJar import gui
+
+#event function
+def press(button):
+    if button == "Cancel":
+        app.stop()
+    elif button == "PS5s":
+        sony("Welcome to our PlayStation console department! Our selections range from the following:", ps1, "Which is the most optimal price point? ")
+    elif button == "GPUs":
+        gpu_options("Welcome to our GPU department! Our selections range from the following:", gp, 'Which GPU would you like to buy?')
+    else:
+        print('Pick a valid option')
+
+#creating GUI variable, appearance 
+app = gui("Storefront", "400x200")
+app.setBg("blue") #background
+app.setFont(18)
+
+# add & configure widgets - 
+app.addLabel("title", "Welcome to Bottom Feeders Emporium")
+app.setLabelBg("title", "Black") #title background color
+app.setLabelFg("title", "white") #letter color
+
+# link the buttons to the function called press
+app.addButtons(["PS5s", "GPUs"], press)
+app.addButton('Cancel', press)
+
 
 df = pd.read_csv('product_list.csv')
 
@@ -11,18 +38,38 @@ ps1 = list(ps)
 gp = (df.iloc[0:3])
 
 ##greeting function 
+name_sentinel = ' '
 
+name = ' '
 def greeting(greet, sentinel, categoryq, readyq):
-    name = input("Hey there, what's your name?")
-    greet = "Welcome to our store, "+name+"!"
+    global name_sentinel
+    global name 
+    if name_sentinel == 'y':
+        greet = ("Welcome to our store, "+name+"!")
+    else:
+        name = input("Hey there, what's your name?")
+        greet = ("Welcome to our store, "+name+"!")
+        name_sentinel = 'y'
+
+    
+    #name = input("Hey there, what's your name?")
+    #greet = "Welcome to our store, "+name+"!"
     n = 0
     canswer = ' '
     ranswer = sentinel
     print(greet)
+
+    sentinel_app = ' '
+    if sentinel_app == 'y':
+        sentinel_app = 'placeholder'
+    else:
+        app.go()
+        sentinel_app = 'y'
+
+
     while ranswer == sentinel:
         canswer = input(categoryq)
         ranswer = input(readyq)
-    
     
     if canswer.lower() == 'gpu' or canswer.lower()== 'gpus':
         #gpu_options('Welcome to the GPU store','something','GPU 3060')
@@ -57,7 +104,7 @@ psj3 = (df.iloc[2])
 
     
 def gpu_options(greeting,seller_choice,gpu):
-    xyz = 'poop'
+    xyz = 'holder'
     while xyz != contloop:
         print(greeting)
         print(psjall)
