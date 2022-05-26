@@ -5,3 +5,8 @@
 
 # Features
 - Added a time function that shows time spent in shop
+
+# Special thanks to my group
+- Trung Le
+- Jonathan Nguyen 
+- Jordan Garland
