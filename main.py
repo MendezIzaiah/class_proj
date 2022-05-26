@@ -12,6 +12,11 @@ class DevNull:
     def write(self, msg):
         pass
 
+def pooping():
+    sys.stderr = DevNull()
+    print('\n')
+    exit()
+
 
 #event function
 def press(button):
@@ -69,7 +74,7 @@ def greeting(greet, sentinel, categoryq, readyq):
     n = 0
     canswer = ' '
     ranswer = sentinel
-    print(greet)
+    #print(greet)
 
     sentinel_app = ' '
     if sentinel_app == 'y':
@@ -188,14 +193,15 @@ def sony(greeting,selection,ps5):
         print(f'Seller {counter} for $', price)
         counter += 1
     ps5_input = str(input(ps5))
-    if ps5_input == '750' or ps5_input.lower() == 'seller 1' or ps5_input == '1':
-        closing('PS5','$%2.f '%ps1[1],'enjoy')
-    elif ps5_input == '800' or ps5_input.lower() == 'seller 2' or ps5_input == '2':
-        closing('PS5','$%2.f '%ps1[2],'enjoy')
-    elif ps5_input == '850' or ps5_input.lower() == 'seller 3' or ps5_input == '3':
-        closing('PS5','$%2.f '%ps1[3],'enjoy')
-    else:
-        print('We do not have that price. Sorry')
+    while True:
+        if ps5_input == '750' or ps5_input.lower() == 'seller 1' or ps5_input == '1':
+            closing('PS5','$%2.f '%ps1[1],'enjoy')
+        elif ps5_input == '800' or ps5_input.lower() == 'seller 2' or ps5_input == '2':
+            closing('PS5','$%2.f '%ps1[2],'enjoy')
+        elif ps5_input == '850' or ps5_input.lower() == 'seller 3' or ps5_input == '3':
+            closing('PS5','$%2.f '%ps1[3],'enjoy')
+        else:
+            ps5_input = input('We do not have that price sorry. Please pick a valid price.')
 
 
 #closing function
@@ -203,8 +209,7 @@ def closing(pickeditems,price,goodbye):
     print("Your total of",pickeditems,"is "+str(price))
     more = input("Would you like to choose a different item (y/n)?")
 
-    contloop2 = 'xyz'
-    while contloop2 != 'holder':
+    while True:
         if more == "y":
             greeting("Great!", "No", "What category would you like to browse (GPUs, PS5s)? ", "Ready to browse (y/n)? ")
         elif more == 'n':
@@ -213,11 +218,12 @@ def closing(pickeditems,price,goodbye):
             #break
             end = time.time()
             global start
-            print('time elapsed is:', end-start)
-            sys.stderr = DevNull()
-            exit()
+            elapsed = (end-start)
+            print('time elapsed is: %.2f seconds' %elapsed)
+            break
         else:
             more = input('Not a valid response. Continue?(y/n)? ')
+    pooping()
     
    
     
