@@ -74,7 +74,7 @@ def greeting(greet, sentinel, categoryq, readyq):
     n = 0
     canswer = ' '
     ranswer = sentinel
-    #print(greet)
+    print(greet)
 
     sentinel_app = ' '
     if sentinel_app == 'y':
@@ -210,7 +210,7 @@ def closing(pickeditems,price,goodbye):
     more = input("Would you like to choose a different item (y/n)?")
 
     while True:
-        if more == "y":
+        if more == 'y':
             greeting("Great!", "No", "What category would you like to browse (GPUs, PS5s)? ", "Ready to browse (y/n)? ")
         elif more == 'n':
             for l in goodbye:
@@ -224,6 +224,7 @@ def closing(pickeditems,price,goodbye):
         else:
             more = input('Not a valid response. Continue?(y/n)? ')
     pooping()
+    
     
    
     
